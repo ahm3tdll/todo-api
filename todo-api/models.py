@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from database import Base
 
 class Todo(Base):
@@ -8,3 +8,4 @@ class Todo(Base):
     title = Column(String(200))  # maksimum 200 karakter
     description = Column(String(500), nullable=True)  # boş olabilir
     completed = Column(Boolean, default=False)  # başlangıçta tamamlanmamış
+    user_id = Column(Integer, ForeignKey("users.id"))
