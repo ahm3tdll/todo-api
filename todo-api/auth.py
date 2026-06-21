@@ -5,8 +5,10 @@ from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 from database import get_db
 import users
+from dotenv import load_dotenv
+import os
 
-SECRET_KEY = "gizli-anahtar-bunu-degistir"  # bunu .env'e taşıyacağız
+SECRET_KEY = os.getenv("SECRET_KEY") # bunu .env'e taşıyacağız
 ALGORITHM = "HS256"
 TOKEN_EXPIRE_MINUTES = 30
 
